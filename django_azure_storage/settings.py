@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env= environ.Env(DEBUG=(bool,False))
+environ.Env.read_env(BASE_DIR / '.env')
 
 
 
@@ -139,6 +142,10 @@ STORAGES = {
     },
 }
 
+
+AZURE_CONTAINER =env('AZURE_CONTAINER')
+AZURE_ACCOUNT_NAME= env('AZURE_ACCOUNT_NAME')
+AZURE_ACCOUNT_KEY = env('AZURE_ACCOUNT_KEY')
 
 
 
