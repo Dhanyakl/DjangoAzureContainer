@@ -1,8 +1,9 @@
 import os
 from django_azure_storage.settings import *
 from django_azure_storage.settings import BASE_DIR
+
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
-CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False
 
 MIDDLEWARE = [
@@ -24,6 +25,5 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
