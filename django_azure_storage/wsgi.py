@@ -9,10 +9,13 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 
 import os
 
+import sys
+
 from django.core.wsgi import get_wsgi_application
 
-settings_module = 'django_azure_storage.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'django_azure_storage.settings'
+sys.path.insert(0, '/home/site/wwwroot')
 
+settings_module = 'django_azure_storage.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'django_azure_storage.settings'
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
