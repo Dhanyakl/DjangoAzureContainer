@@ -25,7 +25,7 @@ environ.Env.read_env(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b3n8q3+(=z2i8)ap!to*y=a=a27*v!mq6jb#q9xlna=4w#9s$n'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-b3n8q3+(=z2i8)ap!to*y=a=a27*v!mq6jb#q9xlna=4w#9s$n')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -138,14 +138,14 @@ STORAGES = {
         },
     },
     "staticfiles":{
-        "BACKEND": "DJANGO.CONTRIB.STATICFILES.STORAGE.StaticFilesStorage"
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
     },
 }
 
 
-AZURE_CONTAINER =env('AZURE_CONTAINER')
-AZURE_ACCOUNT_NAME= env('AZURE_ACCOUNT_NAME')
-AZURE_ACCOUNT_KEY = env('AZURE_ACCOUNT_KEY')
+AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')
+AZURE_ACCOUNT_NAME=  os.environ.get('AZURE_ACCOUNT_NAME')
+AZURE_ACCOUNT_KEY =  os.environ.get('AZURE_ACCOUNT_KEY')
 
 AZURE_CUSTOM_DOMAIN = f"{AZURE_ACCOUNT_NAME}.blob.core.windows.net"
 
