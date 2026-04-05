@@ -63,4 +63,4 @@ jobs:
         with:
           app-name: 'azuredjangocontainerapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EEDB0C03E1A145BBAF8EE8272FE2A40E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_51C7ABB4C2AC4F7F9635A090829A9F47 }}
